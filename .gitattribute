@@ -1,1 +1,8 @@
 * text=auto eol=lf
+
+*.php diff=php
+*.php text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.env text eol=lf
+*.example text eol=lf
