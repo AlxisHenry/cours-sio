@@ -28,6 +28,11 @@ abstract class Forme
 
 	abstract protected function perimetre();
 
+	public function points()
+	{
+		echo $this->centre;
+	}
+
 	public function bouger(float $dx, float $dy) {
 		$this->centre->bouger($dx, $dy);
 	}

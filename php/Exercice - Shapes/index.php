@@ -7,9 +7,17 @@ echo "<pre>";
 echo $rectangle;
 echo "</pre>";
 
+echo "<pre>";
+echo $rectangle->points();
+echo "</pre>";
+
 $rectangle->bouger(3,4);
 echo "<pre>";
 echo $rectangle;
+echo "</pre>";
+
+echo "<pre>";
+echo $rectangle->points();
 echo "</pre>";
 
 $carre = new Carre(new Points(4,4), 1, 1);
@@ -17,9 +25,17 @@ echo "<pre>";
 echo $carre;
 echo "</pre>";
 
+echo "<pre>";
+echo $carre->points();
+echo "</pre>";
+
 $carre->bouger(3,4);
 echo "<pre>";
 echo $carre;
+echo "</pre>";
+
+echo "<pre>";
+echo $carre->points();
 echo "</pre>";
 
 $cercle = new Cercle(new Points(4,2), 2);
@@ -27,17 +43,15 @@ echo "<pre>";
 echo $cercle;
 echo "</pre>";
 
+echo "<pre>";
+echo $cercle->points();
+echo "</pre>";
+
 $cercle->bouger(3,4);
 echo "<pre>";
 echo $cercle;
 echo "</pre>";
 
-// header("content-type:image/png");
-// $x=400;
-// $y=300;
-// $img = imagecreatetruecolor($x,$y);
-// $gris = imagecolorallocate($img,220,220,220);
-// $bleu = imagecolorallocate($img,0,0,200);
-// imagefill($img,0,0,$gris);
-// imageline($img,0,0,$x,$y,$bleu);
-// imagepng($img);
+echo "<pre>";
+echo $cercle->points();
+echo "</pre>";

@@ -35,10 +35,15 @@ class Points
 	public function getY() {
 		return $this->y;
 	}
-
+	
 	public function __toString()
 	{
-		
+		return json_encode([
+			'Points' => [
+				'x' => $this->getX(),
+				'y' => $this->getY()
+			]
+		]);
 	}
 
 }
