@@ -1,0 +1,12 @@
+﻿body {
+	background-color:whitesmoke;
+	color: darkslategrey;
+}
+
+a {
+	color: blue;
+}
+
+img {
+	filter: grayscale(20%);
+}
