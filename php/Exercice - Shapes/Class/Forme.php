@@ -10,8 +10,8 @@ abstract class Forme
 	public function __construct(Points $centre)
 	{
 		$this->centre = $centre;
-		$this->setId();
 		$this->count();
+		$this->setId();
 	}
 
 	private function setId()
