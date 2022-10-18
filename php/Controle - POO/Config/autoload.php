@@ -1,15 +1,25 @@
 <?php
 
-function loadInterfaces($interface)
-{
-  require_once('Interfaces/' . $interface . '.php');
-}
+spl_autoload_register(function ($class)
+  {
+    $filename = $class;
+    $filepath = "Class";
+    $file = "$filepath/$filename.php";
 
-spl_autoload_register('loadInterfaces');
+    if (file_exists($file)) {
+      require_once($file);
+      return true;
+    }
 
-function loadClasses($class)
-{
-  require_once('Class/' . $class . '.php');
-}
+    $filepath = "Interfaces";
+    $file = "$filepath/$filename.php";
+    
+    if (file_exists($file)) {
+      require_once($file);
+      return true;
+    }
 
-spl_autoload_register('loadClasses');
+    return false;
+
+  }
+);
