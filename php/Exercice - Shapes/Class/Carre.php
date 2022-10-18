@@ -3,9 +3,9 @@
 final class Carre extends Rectangle
 {
 	
-	public function __construct(Points $centre, float $largeur, float $longueur)
+	public function __construct(float $largeur, float $longueur, Points $centre = new Points(0,0))
 	{
-		parent::__construct($centre, $largeur, $longueur);
+		parent::__construct($largeur, $longueur, $centre);
 	}
 
 	public function __toString()

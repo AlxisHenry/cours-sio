@@ -7,7 +7,7 @@ abstract class Forme
 	protected int $id = 1;
 	protected static int $compteur = 1;
 
-	public function __construct(Points $centre)
+	public function __construct(Points $centre = new Points(0,0))
 	{
 		$this->centre = $centre;
 		$this->count();

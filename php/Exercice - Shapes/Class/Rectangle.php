@@ -6,7 +6,7 @@ class Rectangle extends Forme
 	private float $largeur;
 	private float $longueur;
 
-	public function __construct(Points $centre, float $largeur, float $longueur)
+	public function __construct(float $largeur, float $longueur, Points $centre = new Points(0,0))
 	{
 		parent::__construct($centre);
 		$this->setLargeur($largeur);

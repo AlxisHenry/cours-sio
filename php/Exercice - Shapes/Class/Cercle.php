@@ -5,7 +5,7 @@ class Cercle extends Forme
 
 	private float $rayon;
 
-	public function __construct(Points $centre, float $rayon)
+	public function __construct(float $rayon, Points $centre = new Points(0,0))
 	{	
 		parent::__construct($centre);
 		$this->setRayon($rayon);
