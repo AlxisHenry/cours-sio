@@ -184,10 +184,10 @@ echo "</pre>" ;
 
 echo "<h4>On retire la remorque du \$camionSansRemorque ci-dessus</h4>";
 
-echo "<i style='font-size: 14px;'>La longueur de la remorque ajoutée précédemment étant stockée dans une variable statique.</i>";
+echo "<i style='font-size: 14px;'>La longueur de la remorque ajoutée précédemment étant stockée dans une variable.</i>";
 
 echo "<pre>";
 echo "Longueur d'origine: " . $camionSansRemorque->getLongueur() . EOL(2);
-echo "Ajout d'une remorque en cours de ". $camionSansRemorque->getRemorqueLongueur() ." mètres de long en cours..." . EOL(2); $camionSansRemorque->retirer_remorque();
+echo "Suppression d'une remorque en cours de ". $camionSansRemorque->getRemorqueLongueur() ." mètres de long en cours..." . EOL(2); $camionSansRemorque->retirer_remorque();
 echo "Longueur avec remorque: " . $camionSansRemorque->getLongueur() . EOL(2);
 echo "</pre>" ;
