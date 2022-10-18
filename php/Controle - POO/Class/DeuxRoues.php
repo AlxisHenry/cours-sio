@@ -5,19 +5,14 @@ require_once('Config/autoload.php');
 
 class DeuxRoues extends Vehicule {
 
-	private int $_cylindree;
+	protected int $_cylindree;
 
 	public function __construct(string $couleur, int $poids, int $cylindree)
 	{
 		parent::__construct($couleur, $poids);
 		$this->_cylindree = $cylindree;
 	}
-
-	public function mettre_essence(int $litre): void
-	{	
-
-	}
-
+	
 	public function getCylindree(): int
 	{
 		return $this->_cylindree;

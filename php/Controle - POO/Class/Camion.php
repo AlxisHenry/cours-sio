@@ -5,7 +5,7 @@ require_once('Config/autoload.php');
 
 final class Camion extends QuatreRoues {
 
-	private static int $longueur_remorque_actuelle = 0;
+	private int $_longueur_remorque_actuelle = 0;
 	private int $_longueur;
 
 	public function __construct(string $couleur, int $poids, int $longueur, int $nbPortes = 2)
@@ -14,19 +14,15 @@ final class Camion extends QuatreRoues {
 		$this->_longueur = $longueur;
 	}
 
-	public function repeindre(): void
-	{
-	}
-
 	public function ajouter_remorque($longueur): void
 	{
-		self::$longueur_remorque_actuelle = $longueur;
+		$this->_longueur_remorque_actuelle = $longueur;
 		$this->setLongueur('+', $longueur);
 	}
 
 	public function retirer_remorque(): void
 	{
-		$this->setLongueur('-', self::$longueur_remorque_actuelle);
+		$this->setLongueur('-', $this->_longueur_remorque_actuelle);
 	}
 
 	public function setLongueur(string $action, int $m): void
@@ -41,6 +37,11 @@ final class Camion extends QuatreRoues {
 	public function getLongueur(): int
 	{
 		return $this->_longueur;
+	}
+
+	public function getRemorqueLongueur(): int
+	{
+		return $this->_longueur_remorque_actuelle;
 	}
 
 	public function __toString()

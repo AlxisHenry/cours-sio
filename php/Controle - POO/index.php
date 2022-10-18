@@ -140,7 +140,7 @@ echo "<h4>Changement de la couleur d'une Voiture: </h4>";
 $changementCouleurVoiture = new Voiture("Bleu", 3000);
 echo "<pre>";
 echo "Couleur d'origine: " . $changementCouleurVoiture->getCouleur() . EOL(2);
-echo "Changement de la couleur en cours..." . EOL(2); $changementCouleurVoiture->setCouleur("Rouge");
+echo "Changement de la couleur en cours..." . EOL(2); $changementCouleurVoiture->repeindre("Rouge");
 echo "Couleur changée: " . $changementCouleurVoiture->getCouleur() . EOL(2);
 echo "</pre>" ;
 
@@ -149,7 +149,7 @@ echo "<h4>Changement de la couleur d'un Camion: </h4>";
 $changementCouleurCamion = new Camion("Violet", 16000, 16);
 echo "<pre>";
 echo "Couleur d'origine: " . $changementCouleurCamion->getCouleur() . EOL(2);
-echo "Changement de la couleur en cours..." . EOL(2); $changementCouleurCamion->setCouleur("Pourpre");
+echo "Changement de la couleur en cours..." . EOL(2); $changementCouleurCamion->repeindre("Pourpre");
 echo "Couleur changée: " . $changementCouleurCamion->getCouleur() . EOL(2);
 echo "</pre>" ;
 
@@ -158,7 +158,7 @@ echo "<h4>Changement de la couleur d'une Moto: </h4>";
 $changementCouleurMoto = new Moto("Rouge", 40, 200);
 echo "<pre>";
 echo "Couleur d'origine: " . $changementCouleurMoto->getCouleur() . EOL(2);
-echo "Changement de la couleur en cours..." . EOL(2); $changementCouleurMoto->setCouleur("Vert");
+echo "Changement de la couleur en cours..." . EOL(2); $changementCouleurMoto->repeindre("Vert");
 echo "Couleur changée: " . $changementCouleurMoto->getCouleur() . EOL(2);
 echo "</pre>" ;
 
@@ -188,6 +188,6 @@ echo "<i style='font-size: 14px;'>La longueur de la remorque ajoutée précédem
 
 echo "<pre>";
 echo "Longueur d'origine: " . $camionSansRemorque->getLongueur() . EOL(2);
-echo "Ajout d'une remorque en cours de 20 mètres de long en cours..." . EOL(2); $camionSansRemorque->retirer_remorque();
+echo "Ajout d'une remorque en cours de ". $camionSansRemorque->getRemorqueLongueur() ." mètres de long en cours..." . EOL(2); $camionSansRemorque->retirer_remorque();
 echo "Longueur avec remorque: " . $camionSansRemorque->getLongueur() . EOL(2);
 echo "</pre>" ;

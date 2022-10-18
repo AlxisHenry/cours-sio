@@ -11,10 +11,6 @@ final class Moto extends DeuxRoues {
 
 	}
 
-	public function repeindre(): void
-	{
-	}
-
 	public function __toString()
 	{
 		$parent = json_decode(parent::__toString());

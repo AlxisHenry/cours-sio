@@ -13,10 +13,6 @@ final class Voiture extends QuatreRoues {
 		$this->_nbPneuNeige = $nbPneuNeige;
 	}
 
-	public function repeindre(): void
-	{
-	}
-
 	public function ajouter_pneu_neige(int $nb): void
 	{	
 		$this->setNbPneuNeige('+', $nb);

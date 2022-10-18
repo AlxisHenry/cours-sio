@@ -6,18 +6,14 @@ require_once('Config/autoload.php');
 
 class QuatreRoues extends Vehicule {
 
-	private int $_nbPortes;
+	protected int $_nbPortes;
 
 	public function __construct(string $couleur, int $poids, int $nbPortes = 5)
 	{
 		parent::__construct($couleur, $poids);
 		$this->_nbPortes = $nbPortes;
 	}
-
-	public function repeindre(): void
-	{
-	}
-
+	
 	public function getNbPortes(): int
 	{
 		return $this->_nbPortes;

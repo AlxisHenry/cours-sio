@@ -5,9 +5,9 @@ require_once('Config/autoload.php');
 
 abstract class Vehicule {
 
-	private string $_couleur;
-	private int $_poids;
-	private int $_nbLitresReservoir = 0;
+	protected string $_couleur;
+	protected int $_poids;
+	protected int $_nbLitresReservoir = 0;
 
 	public function __construct(string $couleur, int $poids) {
 		$this->_couleur = $couleur;
@@ -28,6 +28,11 @@ abstract class Vehicule {
 	public function ajouter_personne(int $poids): void 
 	{
 		$this->_poids += $poids;
+	}
+
+	public function repeindre(string $couleur): void
+	{
+		$this->setCouleur($couleur);
 	}
 
 	public function getCouleur(): string 
