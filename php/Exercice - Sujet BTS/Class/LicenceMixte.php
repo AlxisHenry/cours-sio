@@ -11,4 +11,9 @@ class LicenceMixte extends Licence
 		$this->laEntreprise->ajouterLicenceMixte($this);
 	}
 
+	public function __toString()
+	{
+		return parent::__toString() . " " . $this->laEntreprise->getNom();
+	}
+
 } 

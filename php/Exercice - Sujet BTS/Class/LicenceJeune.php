@@ -14,4 +14,9 @@ class LicenceJeune extends Licence
 		$this->_telResp=$telResp;
 	}
 
+	public function __toString()
+	{
+		return parent::__toString() . " Responsable légal: " . $this->_nomResp . " " . $this->_prenomResp . " " . $this->_telResp;
+	}
+
 }

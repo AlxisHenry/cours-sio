@@ -27,7 +27,7 @@ class Categorie
 
 	public function getLibelle() 
 	{
-		return $this->libelle;
+		return $this->_libelle;
 	}
 
 }

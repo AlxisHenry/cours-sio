@@ -17,7 +17,7 @@ class LigueRegionale
 		$this->_email = $email;	
 	}
 
-	public function ajouterClub(string $club) 
+	public function ajouterClub(Club $club) 
 	{
 		$this->_lesClubs[] = $club;
 	}
@@ -32,9 +32,27 @@ class LigueRegionale
 		return $this->_nom;
 	}
 
-	public function getLesClubs() 
+	public function getLesClubs(): array
 	{
-		return $this->_lesClubs;
+		return $this->_lesClubs ?? [];
+	}
+
+	public function getNbLicencesParCategorie(): array
+	{
+		$stats = [];
+
+		foreach ($this->_lesClubs ?? [] as $club) {
+			$licencesActives = $club->getLicencesActives();
+			foreach ($licencesActives as $licenceActive) {
+				$category = $licenceActive->getCategory()->getLibelle();
+				if (isset($stats[$category])) {
+					$stats[$category]++;
+				} else {
+					$stats[$category] = 1;
+				}
+			}
+		}
+		return $stats;
 	}
  
 }

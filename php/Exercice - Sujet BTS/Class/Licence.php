@@ -17,18 +17,28 @@ class Licence
 		$this->_lePratiquant = $pratiquant;
 	}
 
+	public function getCategory(): Categorie
+	{
+		return $this->_laCategorie;
+	}
+
 	public function pratiquant(): Pratiquant
 	{
 		return $this->_lePratiquant;
 	}
 
+	public function estActive(): bool
+	{
+		return $this->_annee == date('Y') ? true : false;
+	}
+
 	public function getCategorie() 
 	{
-		return $this->laCategorie;	
+		return $this->_laCategorie;	
 	}
-	public function getDescription() 
+	public function __toString()
 	{
-		return $this->numero." ".$this->lePratiquant->GetNom()." ".$this->lePratiquant->GetPrenom();
+		return $this->_numero." ".$this->_lePratiquant->GetNom()." ".$this->_lePratiquant->GetPrenom();
 	}
 	
 }

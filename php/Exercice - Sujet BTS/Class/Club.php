@@ -20,6 +20,7 @@ class Club
 		$this->_adresse = $adresse;
 		$this->_email = $email;
 		$this->_laLigueRegionale = $laLigueRegionale;
+		$this->_laLigueRegionale->ajouterClub($this);
 	}
 	
 	public function ajouterLicence(Licence $licence) 
@@ -27,9 +28,25 @@ class Club
 		$this->_lesLicences[] = $licence;
 	}
 
-	public function afficherLicences(): array
+	public function getLicencesActives(): array
+	{
+		$licencesActives = [];
+		foreach ($this->_lesLicences as $licence) {
+			if ($licence->estActive()) {
+				$licencesActives[] = $licence;
+			}
+		}
+		return $licencesActives;
+	}
+
+	public function recupererLicences(): array
 	{
 		return $this->_lesLicences;
+	}
+
+	public function ligue(): LigueRegionale
+	{
+		return $this->_laLigueRegionale;
 	}
 
 	public function getNom() 
