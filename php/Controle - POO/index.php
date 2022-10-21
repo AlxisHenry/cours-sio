@@ -153,7 +153,7 @@ echo "Changement de la couleur en cours..." . EOL(2); $changementCouleurCamion->
 echo "Couleur changée: " . $changementCouleurCamion->getCouleur() . EOL(2);
 echo "</pre>" ;
 
-echo "<h4>Changement de la couleur d'une Moto: </h4>";
+echo "<h4>Changement de la couleur d'une Moto: </h4>";	
 
 $changementCouleurMoto = new Moto("Rouge", 40, 200);
 echo "<pre>";
