@@ -8,7 +8,7 @@
 		$stats = $ligue->getNbLicencesParCategorie();
 
 		foreach ($stats as $category => $stat) {
-			echo "Categorie : " . $category . " - Nombre de licences : " . $stat;
+			echo "Categorie : " . $category . " - Nombre de licences : " . $stat . "<br>";
 		}
 
 		echo "</pre>";

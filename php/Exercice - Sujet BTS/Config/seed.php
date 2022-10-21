@@ -10,29 +10,53 @@ function remplirDonneesTest($club)
     $participants[] =  new Pratiquant(126, "FARIE", "David", "a4", "mail4@t.fr");
 
     // Création d'une catégorie
-    $cat1 = new Categorie(1, "JeuneAdulte", 18, 30);
+    $categories = [];
+    $categoriesName = [
+        'JeuneAdulte' => [
+            'min' => 18,
+            'max' => 25
+        ], 
+        'Poussin' => [
+            'min' => 6,
+            'max' => 8
+        ],
+        'Junior' => [
+            'min' => 12,
+            'max' => 18
+        ],
+        'Benjamin' => [
+            'min' => 8,
+            'max' => 12
+        ],
+    ];
+    $i = 0;
+
+    foreach ($categoriesName as $categoryName => $age) {
+        $i++;
+        $categories[] = new Categorie($i, $categoryName, $age['min'], $age['max']);
+    }
 
     // Création d'une entreprise
     $entreprise = new Entreprise(153534, "InfoStore SA", "AdrEntr", "entr@entr.fr");
 
     // Création de 4 licences : 2 licences + 1 mixte + 1 Jeune
     // Ajout des licences dans les clubs
-    $lic1 = new Licence(13104512, 2016, $club, $cat1, $participants[0]);
+    $lic1 = new Licence(13104512, 2016, $club, $categories[rand(1, count($categories) - 1)], $participants[0]);
     $club->ajouterLicence($lic1);
     $lic2 = new LicenceJeune(
         14106886,
         2022,
         $club,
-        $cat1,
+        $categories[rand(1, count($categories) - 1)],
         $participants[1],
         "RINGOT",
         "Fabrice",
         "05 62 97 45 62"
     );
     $club->ajouterLicence($lic2);
-    $lic3 = new LicenceMixte(13236458, 2016, $club, $cat1, $participants[2], $entreprise);
+    $lic3 = new LicenceMixte(13236458, 2016, $club, $categories[rand(1, count($categories) - 1)], $participants[2], $entreprise);
     $club->ajouterLicence($lic3);
-    $lic4 = new Licence(10245896, 2016, $club, $cat1, $participants[3]);
+    $lic4 = new Licence(10245896, 2016, $club, $categories[rand(1, count($categories) - 1)], $participants[3]);
     $club->ajouterLicence($lic4);
 
     return $club;
