@@ -1,3 +1,2 @@
-<?php include_once("v_entete.php"); ?>
+<?php
 
-<?php include_once("v_piedPage.php"); ?>

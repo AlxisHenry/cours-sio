@@ -36,7 +36,6 @@ class Club
 			}
 		}
 		return $licencesActives;
-		
 	}
 
 	public function recupererLicences(): array
