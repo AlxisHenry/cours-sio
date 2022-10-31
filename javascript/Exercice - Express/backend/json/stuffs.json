@@ -1,0 +1,34 @@
+[
+	{
+		"_id": "oeihfzeoi",
+		"title": "Mon premier objet",
+		"description": "Les infos de mon premier objet",
+		"imageUrl": "https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg",
+		"price": 4900,
+		"userId": "qsomihvqios"
+	},
+	{
+		"_id": "oeihfzeomoi",
+		"title": "Mon deuxième objet",
+		"description": "Les infos de mon deuxième objet",
+		"imageUrl": "https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg",
+		"price": 2900,
+		"userId": "qsomihvqios"	
+	},
+	{
+		"_id": "azdzadazdzad",
+		"title": "Mon troisième objet",
+		"description": "Les infos de mon troisième objet",
+		"imageUrl": "https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg",
+		"price": 5900,
+		"userId": "ergregre"	
+	},
+	{
+		"_id": "eergergregreg",
+		"title": "Mon quatrième objet",
+		"description": "Les infos de mon quatrième objet",
+		"imageUrl": "https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg",
+		"price": 9900,
+		"userId": "regregreg"	
+	}
+]
