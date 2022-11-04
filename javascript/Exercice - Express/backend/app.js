@@ -1,11 +1,33 @@
+/**
+ * Express
+ */
 import express, { response } from "express"
 import mongoose from "mongoose"
 import bodyParser from "body-parser"
-import { router } from "./routes/stuff.js"
-import dotenv from "dotenv"
 
+/**
+ * Routers
+ */
+import { stuffRoutes } from "./routes/stuff.js"
+import { userRoutes } from "./routes/user.js"
+
+/**
+ * Env
+ */
+import dotenv from "dotenv"
 dotenv.config()
 
+/**
+ * App
+ */
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+/**
+ * MongoDB connexion to cluster
+ */
 mongoose
   .connect(
     process.env.MONGO_URI,
@@ -14,6 +36,10 @@ mongoose
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"))
 
+
+/**
+ * Configuration
+ */
 const app = express()
 
 app.use((req, res, next) => {
@@ -30,7 +56,12 @@ app.use((req, res, next) => {
 })
 
 app.use(bodyParser.json())
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use("/api/stuff", router)
+/**
+ * Routing
+ */
+app.use("/api/stuff", stuffRoutes)
+app.use("/api/auth", userRoutes)
 
 export default app

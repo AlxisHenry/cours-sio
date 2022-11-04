@@ -2,10 +2,13 @@ import express, { response } from "express";
 import mongoose from "mongoose";
 import { Product } from "./models/Products.js";
 import bodyParser from "body-parser";
+import dotenv from "dotenv"
+
+dotenv.config()
 
 mongoose
   .connect(
-    "mongodb+srv://alexis57:alexis57370@cluster0.s4qci5h.mongodb.net/?retryWrites=true&w=majority",
+    process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))

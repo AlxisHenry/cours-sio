@@ -1,10 +1,12 @@
 import express, { response } from "express";
 import * as StuffController from "../controllers/stuff.js";
+import { Auth } from "../middleware/auth.js";
+import { Multer } from "../middleware/multer-config.js";
 
-export const router = express.Router();
+export const stuffRoutes = express.Router();
 
-router.get('/', StuffController.getAllStuff);
-router.post('/', StuffController.createThing);
-router.get('/:id', StuffController.getOneThing);
-router.put('/:id', StuffController.modifyThing);
-router.delete('/:id', StuffController.deleteThing);
+stuffRoutes.get('/', Auth, StuffController.getAllStuff);
+stuffRoutes.post('/', Auth, Multer, StuffController.createThing);
+stuffRoutes.get('/:id', Auth, StuffController.getOneThing);
+stuffRoutes.put('/:id', Auth, Multer, StuffController.modifyThing);
+stuffRoutes.delete('/:id', Auth, StuffController.deleteThing);
