@@ -43,12 +43,16 @@ RUN node -v
 WORKDIR $REPOSITORY/
 
 # Laravel project
-RUN rm $REPOSITORY/index.html
+RUN rm index.html
 RUN composer create-project laravel/laravel .
 
 # Twill setup
 RUN cd $REPOSITORY \
 	composer require area17/twill:"^2.0" \
 	php artisan twill:install
+
+# Rights
+RUN chown -R root:www-data storage/ bootstrap/ public/ \
+	&& chmod -R 777 storage/ bootstrap/ public/
 
 EXPOSE 8000
