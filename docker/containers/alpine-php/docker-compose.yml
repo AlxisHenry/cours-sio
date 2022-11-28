@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: alxishenry/alpine-php:7.3
+    ports:
+    - 82:80
+    volumes:
+    - .:/app/
