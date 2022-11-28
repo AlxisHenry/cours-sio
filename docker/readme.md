@@ -152,3 +152,25 @@ The push refers to repository [docker.io/alxshenry/ubuntu-composer]
 f4a670ac65b6: Pushed
 latest: digest: sha256:28985882c6b194e6641ee154187ce5c047acbf77a757a340e05e36c6d026b791 size: 741
 ```
+
+## Dockerfile
+
+## Features
+
+- WORKDIR [path] déplacer le curseur dans un répertoire
+- ENV [nom] [valeur] permet de créer des variables d'environnement que vous pouvez récupérer via la
+variable ${nom}
+- VOLUME [path] permet de créer un point de montage comment entre l’hôte et le conteneur
+- USER [nom] permet d’indiquer l’utilisateur à utiliser
+
+### Alpine
+
+```bash
+$ docker run -d -p 8000:80 alpine-apache:8000 /usr/sbin/httpd -D FOREGROUND
+261640f528e6b5222824206adca418839c017529986a90cba61a9e7f5541987f
+
+$ docker ps -l
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                  NAMES
+261640f528e6   alpine-apache:8000   "/usr/sbin/httpd -D …"   3 seconds ago   Up 3 seconds   0.0.0.0:8000->80/tcp   exciting_greider
+```
+
