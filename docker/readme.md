@@ -1,9 +1,6 @@
 # Introduction
 
-<br>
 <img src="src/screen_intro.png" alt="Introduction Docker">
-
-<br>
 
 # Quels sont les limites de Docker ?
 
@@ -80,9 +77,9 @@ sudo !! / sudo docker run -it ubuntu
 
 <img src="src/itupdate.png">
 
-<br>
-
 ## Gérer les containers
+
+- Entrer dans le shell d'un container ` docker exec -it {62681cdc60b2} /bin/bash`
 
 - Lister les containers actifs : `docker ps`
 
@@ -92,19 +89,66 @@ sudo !! / sudo docker run -it ubuntu
 
 - Gestion de l'état :
 
-   - Lancer le container : `docker start 62681cdc60b2 | ubuntu`
+   - Lancer le container : `docker start {62681cdc60b2} | ubuntu`
 
-   - Stopper le container : `docker stop 62681cdc60b2 | ubuntu`
+   - Stopper le container : `docker stop {62681cdc60b2} | ubuntu`
 
-   - Supprimer le container : `docker rm 62681cdc60b2 | ubuntu`
+   - Supprimer le container : `docker rm {62681cdc60b2} | ubuntu`
 
 - Attribuer un nom à la création : 
 
 ```
 $ docker run --name hello hello-world
+
 $ docker ps -a
 CONTAINER ID   IMAGE         COMMAND        CREATED              STATUS                      PORTS     NAMES
 0888fa1f72e1   hello-world   "/hello"       26 seconds ago       Exited (0) 26 seconds ago             hello
+
 $ docker rm hello
 hello
+```
+
+- Commit les changements effectués sur un container
+
+```bash
+$ docker container commit -m "Ajout de composer" -a "Alexis" f4a492cf0718 ubuntu/composer
+sha256:924cc6ba65be972cb687c8da7d48dcf260a986d3656d7bfdc80e1bed21bad1f6
+
+$ docker images
+REPOSITORY                  TAG       IMAGE ID       CREATED          SIZE
+ubuntu/composer             latest    924cc6ba65be   2 seconds ago    263MB
+repository/new_image_name   latest    9a7e62239a67   17 seconds ago   263MB
+sail-8.1/app                latest    b9d44fbba774   15 hours ago     769MB
+docker/getting-started      latest    e5be50c31cb9   2 days ago       29.8MB
+ubuntu                      latest    a8780b506fa4   3 weeks ago      77.8MB
+mysql/mysql-server          8.0       3f3946d5572f   6 weeks ago      517MB
+hello-world                 latest    feb5d9fea6a5   14 months ago    13.3kB
+```
+
+- Transmettre des images Docker vers un référentiel Docker
+
+```bash
+$ sudo docker login -u alxshenry
+[sudo] password for alexis:
+Password:
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+
+Logging in with your password grants your terminal complete access to your account.
+For better security, log in with a limited-privilege personal access token. Learn more at https://docs.docker.com/go/access-tokens/
+```
+
+```bash
+$ docker container commit -m "Ajout de composer" -a "Alexis" f4a492cf0718 alxshenry/ubuntu-composer
+sha256:0ffb18497ca9c8869fadff3d3ff069ba7a07428c07deb57e8641b49a6abbe540
+
+$ docker push alxshenry/ubuntu-composer
+Using default tag: latest
+The push refers to repository [docker.io/alxshenry/ubuntu-composer]
+70e20414aa6d: Pushed
+f4a670ac65b6: Pushed
+latest: digest: sha256:28985882c6b194e6641ee154187ce5c047acbf77a757a340e05e36c6d026b791 size: 741
 ```
