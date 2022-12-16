@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
+    <meta charset="UTF-8" />
+    <title>Tutoriel VueJS 3 pour débutant</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.2.29/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="app">
+      <h1>{{ name }}</h1>
+
+      <div class="product-image">
+        <img v-bind:src="image" alt="image product" />
+      </div>
+
+      <p v-if="inventory > 10">En stock</p>
+      <p v-else-if="inventory <= 10 && inventory > 0">Presque en rupture!</p>
+      <p v-else>En rupture</p>
+
+      <li v-for="detail in details">{{ detail }}</li>
+      <div class="variants-wrapper">
+        <div
+          v-for="(variant, index) in variants"
+          :key="variant.id"
+          @mouseover="updateVariant(index)"
+          class="color-circle"
+          :style="{ backgroundColor: variant.color }"
+        ></div>
+      </div>
+      <div class="cart">Panier ({{ cart }})</div>
+
+      <button
+        class="button"
+        :class="{ disabledButton: !inStock }"
+        :disabled="!inStock"
+        v-on:click="addToCart"
+      >
+        Ajouter au panier
+      </button>
+    </div>
+
+    <!-- Import Js -->
+    <script src="./main.js"></script>
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
   </body>
 </html>
