@@ -1,0 +1,7 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "symfony/var-dumper": "^6.2",
+        "google/apiclient": "^2.10"
+    }
+}
