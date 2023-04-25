@@ -1,0 +1,37 @@
+# Visual Studio / .NET
+*.user
+*.suo
+*.cache
+*.log
+bin/
+obj/
+Debug/
+Release/
+*.vs/
+.vscode/
+
+# NuGet Packages
+*.nupkg
+packages/
+*.paket/paket.exe
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# Misc
+*.sln.docstates
