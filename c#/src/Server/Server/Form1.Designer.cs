@@ -96,8 +96,8 @@
 
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Label lblStatus;
         public System.Windows.Forms.ListBox lbxMessages;
+        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblClients;
     }
 }

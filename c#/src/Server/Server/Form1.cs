@@ -22,7 +22,7 @@ namespace Server
             InitializeComponent();
         }
 
-        private void AddMessageToListBox(string message)
+        public void AddMessageToListBox(string message)
         {
             if (lbxMessages.InvokeRequired)
             {
@@ -31,6 +31,24 @@ namespace Server
             else
             {
                 lbxMessages.Items.Add(message);
+            }
+        }
+
+        public void UpdateClientCount()
+        {
+            int count;
+            lock (ChatBehavior._sessions)
+            {
+                count = ChatBehavior._sessions.Count;
+            }
+
+            if (lblClients.InvokeRequired)
+            {
+                lblClients.Invoke(new Action(() => lblClients.Text = "Clients connectés : " + count));
+            }
+            else
+            {
+                lblClients.Text = "Clients connectés: " + count.ToString();
             }
         }
 
@@ -45,7 +63,10 @@ namespace Server
             
             // Démarrage du serveur WebSocket sur l'adresse IP de la machine et le port 8080
             server = new WebSocketServer(ipAddress, port);
-            server.AddWebSocketService<ChatBehavior>("/");
+            server.AddWebSocketService<ChatBehavior>("/", behavior =>
+            {
+                behavior.FormInstance = this;
+            });
             server.Start();
 
             // Mise à jour de l'interface graphique avec l'adresse IP et le port utilisé

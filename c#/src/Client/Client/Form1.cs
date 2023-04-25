@@ -92,7 +92,6 @@ namespace Client
 
                 // Efface la zone de saisie
                 tbMessage.Clear();
-                MessageBox.Show("Message envoyé !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {

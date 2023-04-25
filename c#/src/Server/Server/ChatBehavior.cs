@@ -10,25 +10,26 @@ namespace Server
 {
     public class ChatBehavior : WebSocketBehavior
     {
-        private static readonly List<ChatBehavior> _sessions = new List<ChatBehavior>();
-        private readonly Form1? _form;
-        
+        public static readonly List<ChatBehavior> _sessions = new List<ChatBehavior>();
+        private Form1 formInstance;
+
+        public Form1 FormInstance { get => formInstance; set => formInstance = value; }
+
         protected override void OnOpen()
         {
-            MessageBox.Show("Connection openned");
             _sessions.Add(this);
+            FormInstance.UpdateClientCount();
         }
 
         protected override void OnClose(CloseEventArgs e)
         {
-            MessageBox.Show("Connection closed");
             _sessions.Remove(this);
+            FormInstance.UpdateClientCount();
         }
 
         protected override void OnMessage(MessageEventArgs e)
         {
-            MessageBox.Show("Message received => " + e.Data.ToString());
-            //_form.Invoke(new Action(() => _form.lbxMessages.Items.Add(e.Data.ToString())));
+            FormInstance.AddMessageToListBox(e.Data);
         }
     }
 }
